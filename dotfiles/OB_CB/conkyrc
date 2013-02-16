@@ -1,0 +1,123 @@
+######################
+# - Conky settings - #
+######################
+update_interval 2
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 2
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Droid Sans:size=10
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+#own_window_class Conky
+#own_window yes
+#own_window_type normal
+#own_window_transparent yes
+#own_window_argb_visual no
+#own_window_argb_value 0
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+alignment top_left
+gap_y 75
+gap_x 1675
+#border_inner_margin 8
+
+minimum_size 180 500
+
+
+
+default_bar_size 92 6
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades no
+draw_shadows no
+#default_shade_color 000000
+#default_color FFFFFF
+
+TEXT
+${font Droid Sans:style=Bold:size=10}SYSTEM 
+${voffset -8}$hr${font}
+##############
+# - SYSTEM - #
+##############
+${voffset 6}${font OpenLogos:size=19}${font}${goto 40}${voffset -15}Kernel:  ${alignr}${kernel}
+${goto 40}Uptime: ${alignr}${uptime}
+# |--UPDATES
+#${goto 40}Updates: ${alignr}${font Droid Sans:style=Bold:size=8}${execi 10800 pacman -Qu | wc -l}${font} Packages
+# |--CPU
+${voffset 6}${font Droid Sans:style=Bold:size=10}CPU${font}${offset -22}${voffset 12}${cpubar cpu0 4,18}
+${voffset -27}${goto 40}Core 1: ${font Droid Sans:style=Bold:size=8}${cpu cpu1}%${font} ${alignr}${cpubar cpu1 7,70 EEEEEE}
+${voffset -3}${goto 40}Core 2: ${font Droid Sans:style=Bold:size=8}${cpu cpu2}%${font} ${alignr}${cpubar cpu2 7,70 EEEEEE}
+#${voffset 1}${goto 40}Core 3: ${font Droid Sans:style=Bold:size=8}${cpu cpu3}%${font} ${alignr}${cpubar cpu3 7,70 EEEEEE}
+#${voffset 1}${goto 40}Core 4: ${font Droid Sans:style=Bold:size=8}${cpu cpu4}%${font} ${alignr}${cpubar cpu4 7,70 EEEEEE}
+# |--MEM
+${voffset 3}${font Droid Sans:style=Bold:size=10}RAM${font}${goto 40}RAM: ${font Droid Sans:style=Bold:size=8}$memperc%${font}
+${voffset 3}${offset 4}${voffset -8}${membar 4,18}${voffset 4}${goto 40}${voffset -2}Free: ${font Droid Sans:style=Bold:size=8}${memeasyfree}${font} ${voffset -3}${goto 114}Used: ${font Droid Sans:style=Bold:size=8}${mem}${font}
+# |--SWAP
+${voffset 1}${font Droid Sans:style=Bold:size=10}SWP${font}${goto 40}Swap: ${font Droid Sans:style=Bold:size=8}${swapperc}%${font}
+${voffset -6}${offset 4}${swapbar 4,18}${voffset 2}${goto 40}Free: ${font Droid Sans:style=Bold:size=8}$swapmax${font} ${voffset -3}${goto 114}Used: ${font Droid Sans:style=Bold:size=8}$swap${font}
+# |--PROC
+${voffset 4}${font Droid Sans:style=Bold:size=10}TOP${font}${voffset 0}${goto 126}CPU${alignr}RAM
+${voffset -8}${hr}
+${voffset -1}${goto 15}${top name 1}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 1}${alignr }${top mem 1}${font}
+${voffset -1}${goto 15}${top name 2}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 2}${alignr }${top mem 2}${font}
+${voffset -1}${goto 15}${top name 3}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 3}${alignr }${top mem 3}${font}
+${voffset -1}${goto 15}${top name 4}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 4}${alignr }${top mem 4}${font}
+${voffset -1}${goto 15}${top name 5}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 5}${alignr }${top mem 5}${font}
+${voffset -1}${goto 15}${top name 6}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 6}${alignr }${top mem 6}${font}
+${voffset -1}${goto 15}${top name 7}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 7}${alignr }${top mem 7}${font}
+${voffset -1}${goto 15}${top name 8}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 8}${alignr }${top mem 8}${font}
+${voffset -1}${goto 15}${top name 9}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 9}${alignr }${top mem 9}${font}
+${voffset -1}${goto 15}${top name 10}${font Droid Sans:style=Bold:size=8} ${goto 120}${top cpu 10}${alignr }${top mem 10}${font}
+#############
+# - CLOCK - #
+#############
+${voffset 6}${font Droid Sans:style=Bold:size=10}DATE 
+${voffset -8}$hr${font}
+${font Droid Sans:size=20}${alignc}${time %H:%M}${font}
+${alignc}${time %d %B %Y}
+###############
+# - NETWORK - #
+###############
+${voffset 4}${font Droid Sans:style=Bold:size=10}NETWORK 
+${voffset -8}$hr${font}
+${voffset 4}${goto 20}Upload: ${font Droid Sans:style=Bold:size=8}${upspeed eth0}${font} ${alignr}${upspeedgraph eth0 20,60 EEEEEE}
+${voffset -20}${goto 20}Overall: ${font Droid Sans:style=Bold:size=8}${totalup eth0}${font}
+${voffset 4}${goto 20}Download: ${font Droid Sans:style=Bold:size=8}${downspeed eth0}${font} ${alignr}${downspeedgraph eth0 20,60 EEEEEE}
+${voffset -20}${goto 20}Overall: ${font Droid Sans:style=Bold:size=8}${totaldown eth0}${font}
+#${voffset 4}${goto 20}Local IP: ${alignr}${font Droid Sans:style=Bold:size=8}${addr eth0}${font}
+#${goto 20}Public IP: ${alignr}${font Droid Sans:style=Bold:size=8}${execi 10800 ~/.public_ip}${font}
+##########
+# - HD - #
+##########
+${voffset 4}${font Droid Sans:style=Bold:size=10}HD 
+${voffset -8}$hr${font}
+# |--HD default
+  ${voffset 4}${goto 20}Root: ${font Droid Sans:style=Bold:size=8}${fs_used_perc /}%${font}${voffset -2}${goto 100}${alignr}${fs_bar 6,75 /}
+  ${offset 9}Free: ${font Droid Sans:style=Bold:size=8}${fs_free /}${font} ${voffset -3}${alignr 1}Used: ${font Droid Sans:style=Bold:size=8}${fs_used /}${font}
+  ${voffset 4}${goto 20}Home: ${font Droid Sans:style=Bold:size=8}${fs_used_perc /home}%${font}${goto 100}${alignr}${fs_bar 6,75 /home}
+  ${offset 9}Free: ${font Droid Sans:style=Bold:size=8}${fs_free /home}${font} ${voffset -3}${alignr 1}Used: ${font Droid Sans:style=Bold:size=8}${fs_used /home}${font}
+# |--HDTEMP1
+# ${voffset 7}${goto 20}${voffset -4}Temperature: ${font Droid Sans:style=Bold:size=8}${execi 120 sudo hddtemp /dev/sda -n --unit=C}°C${font}${alignr}/dev/sda
+# ${voffset 10}
